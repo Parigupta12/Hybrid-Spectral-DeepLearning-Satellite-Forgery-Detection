@@ -1,0 +1,25 @@
+Final Hybrid Feature Fusion Results
+===================================
+
+Best validation threshold: 0.5301507537688442
+Validation Macro-F1: 0.6667
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.7209    0.8158    0.7654        38
+           1     0.7812    0.6757    0.7246        37
+
+    accuracy                         0.7467        75
+   macro avg     0.7511    0.7457    0.7450        75
+weighted avg     0.7507    0.7467    0.7453        75
+
+Confusion Matrix:
+[[31  7]
+ [12 25]]
+
+Accuracy: 0.7467
+Precision: 0.7812
+Recall: 0.6757
+F1-score: 0.7246
+ROC-AUC: 0.7319

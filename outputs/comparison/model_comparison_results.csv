@@ -1,0 +1,4 @@
+Model,Accuracy,Precision,Recall,F1-score,ROC-AUC
+CNN Only,0.6267,0.9091,0.2703,0.4167,0.6216
+Spectral Only,0.6267,0.5789,0.8919,0.7021,0.7262
+Hybrid Feature Fusion,0.7467,0.7812,0.6757,0.7246,0.7319

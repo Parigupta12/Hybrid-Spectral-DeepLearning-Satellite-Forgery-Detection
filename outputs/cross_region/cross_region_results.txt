@@ -1,0 +1,28 @@
+External Cross-Region Validation Results
+========================================
+
+Training region: Agra
+External testing region: Jaipur ROI-2
+
+Agra validation threshold: 0.5301507537688442
+Agra validation Macro-F1: 0.6667
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.6087    0.8400    0.7059        50
+           1     0.7419    0.4600    0.5679        50
+
+    accuracy                         0.6500       100
+   macro avg     0.6753    0.6500    0.6369       100
+weighted avg     0.6753    0.6500    0.6369       100
+
+Confusion Matrix:
+[[42  8]
+ [27 23]]
+
+Accuracy: 0.65
+Precision: 0.7419
+Recall: 0.46
+F1-score: 0.5679
+ROC-AUC: 0.7052

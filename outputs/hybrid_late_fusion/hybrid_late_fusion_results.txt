@@ -1,0 +1,26 @@
+Improved Hybrid Late Fusion Results
+===================================
+
+Best validation threshold: 0.5060301507537689
+Validation F1: 0.5711
+Validation Accuracy: 0.6316
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.5714    0.9474    0.7129        38
+           1     0.8333    0.2703    0.4082        37
+
+    accuracy                         0.6133        75
+   macro avg     0.7024    0.6088    0.5605        75
+weighted avg     0.7006    0.6133    0.5625        75
+
+Confusion Matrix:
+[[36  2]
+ [27 10]]
+
+Accuracy: 0.6133
+Precision: 0.8333
+Recall: 0.2703
+F1-score: 0.4082
+ROC-AUC: 0.6486
