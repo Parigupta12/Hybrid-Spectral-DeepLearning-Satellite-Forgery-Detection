@@ -81,7 +81,7 @@ def grouped_bar_plot(metrics, title, filename):
 
         bars = ax.bar(
             x + offset,
-            df[metric],
+            df[metric] * 100,  # Convert to percentage
             width,
             label=metric,
             color=color,
@@ -93,19 +93,23 @@ def grouped_bar_plot(metrics, title, filename):
             height = bar.get_height()
             ax.text(
                 bar.get_x() + bar.get_width() / 2,
-                height + 0.018,
-                f"{height:.2f}",
+                height + 1.8,  # Adjusted offset for percentage scale
+                f"{height:.1f}%",  # Display as percentage
                 ha="center",
                 va="bottom",
                 fontsize=10.5,
                 fontweight="bold"
             )
 
-    ax.set_ylim(0, 1.05)
-    ax.set_ylabel("Score")
+    ax.set_ylim(0, 105)  # 0-100% with some padding
+    ax.set_ylabel("Score (%)")  # Updated label
     ax.set_title(title, pad=12)
     ax.set_xticks(x)
     ax.set_xticklabels(models, rotation=8, ha="center")
+
+    # Y-axis ticks in percentage
+    ax.set_yticks([0, 20, 40, 60, 80, 100])
+    ax.set_yticklabels(["0%", "20%", "40%", "60%", "80%", "100%"])
 
     ax.grid(axis="y", linestyle="--", linewidth=0.8, alpha=0.45)
     ax.set_axisbelow(True)

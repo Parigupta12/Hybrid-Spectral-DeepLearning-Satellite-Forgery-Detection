@@ -138,10 +138,10 @@ def load_hybrid_features(csv_path, feature_extractor):
 # --------------------------------------------------
 # Main Pipeline
 # --------------------------------------------------
-print("📥 Loading CNN feature extractor...")
+print("Loading CNN feature extractor...")
 feature_extractor = build_cnn_feature_extractor()
 
-print("\n📥 Extracting hybrid features...")
+print("\nExtracting hybrid features...")
 X_train, y_train = load_hybrid_features(train_csv, feature_extractor)
 X_val, y_val = load_hybrid_features(val_csv, feature_extractor)
 X_test, y_test = load_hybrid_features(test_csv, feature_extractor)
@@ -150,13 +150,13 @@ print("Train fused feature shape:", X_train.shape)
 print("Validation fused feature shape:", X_val.shape)
 print("Test fused feature shape:", X_test.shape)
 
-print("\n⚙️ Scaling fused features...")
+print("\nScaling fused features...")
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_val_scaled = scaler.transform(X_val)
 X_test_scaled = scaler.transform(X_test)
 
-print("\n🚀 Training Random Forest fusion classifier...")
+print("\nTraining Random Forest fusion classifier...")
 
 rf = RandomForestClassifier(
     n_estimators=300,
@@ -172,7 +172,7 @@ rf.fit(X_train_scaled, y_train)
 # --------------------------------------------------
 # Validation threshold selection
 # --------------------------------------------------
-print("\n🔍 Selecting decision threshold using validation set...")
+print("\nSelecting decision threshold using validation set...")
 
 val_prob = rf.predict_proba(X_val_scaled)[:, 1]
 
@@ -194,7 +194,7 @@ print("Validation Macro-F1:", round(best_macro_f1, 4))
 # --------------------------------------------------
 # Test Evaluation
 # --------------------------------------------------
-print("\n🧪 Evaluating final hybrid feature fusion model...")
+print("\nEvaluating final hybrid feature fusion model...")
 
 test_prob = rf.predict_proba(X_test_scaled)[:, 1]
 test_pred = (test_prob >= best_threshold).astype(int)
@@ -208,7 +208,7 @@ recall = recall_score(y_test, test_pred, zero_division=0)
 f1 = f1_score(y_test, test_pred, zero_division=0)
 auc = roc_auc_score(y_test, test_prob)
 
-print("\n✅ Step 9: Final Hybrid Feature Fusion Complete")
+print("\nStep 9: Final Hybrid Feature Fusion Complete")
 
 print("\nClassification Report:")
 print(report)

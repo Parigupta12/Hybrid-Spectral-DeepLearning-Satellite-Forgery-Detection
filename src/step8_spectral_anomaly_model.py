@@ -107,7 +107,7 @@ def find_best_threshold(scores, labels):
     return best_threshold, best_f1, best_acc
 
 
-print("📥 Loading validation data...")
+print("Loading validation data...")
 val_df, val_scores, val_labels, _ = get_scores(val_csv)
 
 best_threshold, best_val_f1, best_val_acc = find_best_threshold(
@@ -118,13 +118,13 @@ best_threshold, best_val_f1, best_val_acc = find_best_threshold(
 val_preds = (val_scores >= best_threshold).astype(int)
 val_auc = roc_auc_score(val_labels, val_scores)
 
-print("\n✅ Validation threshold selected")
+print("\nValidation threshold selected")
 print("Threshold:", best_threshold)
 print("Validation Accuracy:", round(best_val_acc, 4))
 print("Validation F1:", round(best_val_f1, 4))
 print("Validation ROC-AUC:", round(val_auc, 4))
 
-print("\n📥 Loading test data...")
+print("\nLoading test data...")
 test_df, test_scores, test_labels, test_paths = get_scores(test_csv)
 
 test_preds = (test_scores >= best_threshold).astype(int)
@@ -138,7 +138,7 @@ test_recall = recall_score(test_labels, test_preds, zero_division=0)
 test_f1 = f1_score(test_labels, test_preds, zero_division=0)
 test_auc = roc_auc_score(test_labels, test_scores)
 
-print("\n✅ Final Clean Step 8 Complete")
+print("\nFinal Clean Step 8 Complete")
 print("\nTest score range:")
 print("Min:", test_scores.min())
 print("Max:", test_scores.max())

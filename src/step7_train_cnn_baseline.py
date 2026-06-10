@@ -38,7 +38,7 @@ def load_data(csv_path):
     return np.array(X, dtype="float32"), np.array(y, dtype="int32")
 
 
-print("📥 Loading data...")
+print("Loading data...")
 X_train, y_train = load_data(train_csv)
 X_val, y_val = load_data(val_csv)
 X_test, y_test = load_data(test_csv)
@@ -87,7 +87,7 @@ checkpoint = callbacks.ModelCheckpoint(
     save_best_only=True
 )
 
-print("\n🚀 Training CNN baseline...")
+print("\nTraining CNN baseline...")
 
 history = model.fit(
     X_train, y_train,
@@ -98,7 +98,7 @@ history = model.fit(
     verbose=1
 )
 
-print("\n🧪 Evaluating on test set...")
+print("\Evaluating on test set...")
 
 y_prob = model.predict(X_test).ravel()
 y_pred = (y_prob >= 0.5).astype(int)
@@ -125,5 +125,5 @@ with open(os.path.join(output_dir, "cnn_baseline_results.txt"), "w") as f:
     f.write("\n\nROC-AUC: ")
     f.write(str(round(auc, 4)))
 
-print("\n✅ Step 7 complete.")
+print("\nStep 7 complete.")
 print("Results saved in:", output_dir)
