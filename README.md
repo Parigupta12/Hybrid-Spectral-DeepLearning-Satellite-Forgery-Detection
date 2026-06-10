@@ -73,7 +73,7 @@ The framework follows a 6-step pipeline:
 ---
 
 ## 📁 Project Structure
-├── data/               # Agra training dataset
+├── data/          # Agra training dataset
 ├── data_roi2/          # Jaipur validation dataset
 ├── outputs/            # Results and output files
 ├── src/                # Source code
